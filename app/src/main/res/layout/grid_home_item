@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/home_selector"
+    tools:context=".MainActivity"
+    >
+
+    <ImageView
+        android:id="@+id/iv_home_icon"
+        android:layout_marginTop="20dip"
+        android:layout_width="65dip"
+        android:layout_height="65dip"
+        />
+
+    <TextView
+        android:id="@+id/tv_home_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dip"
+        />
+
+
+
+
+</LinearLayout>

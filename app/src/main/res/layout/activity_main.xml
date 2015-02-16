@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/tv_main_title"
+        android:background="#ff2a24ff"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:textSize="20dip"
+        android:textColor="#ffffffff"
+        android:text="Dream手机卫士"
+        />
+
+    <com.dream.net.ui.FocusTextView
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dip"
+        android:text="这个是测试版的手机卫士，由于界面还没有完成，这个只是暂时展现出来，可能比较难看，凑合凑合吧"
+        />
+
+    <!--
+    android:listSelector="@android:color/transparent"打开后数值是#00000000，前面两位表示透明度，后面的六位表示RGB，每个8个位（如R中8个位）
+    -->
+    <GridView
+        android:id="@+id/gv_home_item"
+        android:listSelector="@android:color/transparent"
+        android:layout_marginTop="10dip"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:verticalSpacing="5dip"
+        android:numColumns="3"
+        />
+
+
+
+
+
+</LinearLayout>
