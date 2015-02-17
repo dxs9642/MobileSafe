@@ -72,7 +72,6 @@ public class SplashActivity extends Activity {
                 case State.DOWNLOAD_FILE_SUCCESS:
                     Toast.makeText(getApplicationContext(),"文件下载成功，正在进入安装程序......",Toast.LENGTH_SHORT).show();
                     File file = (File)msg.obj;
-                    Log.i(TAG,"文件路径："+file.getAbsolutePath());
                     installNewAPK(file);
                     SplashActivity.this.finish();
                     break;
@@ -118,9 +117,9 @@ public class SplashActivity extends Activity {
         @Override
         public void run() {
             File file = new File(Environment.getExternalStorageDirectory(),DownloadUtil.getFileName(updateInfo.getApkurl()));
-            File downloadFile = DownloadUtil.download(updateInfo.getApkurl(), file.getAbsolutePath(),pd);
+            DownloadUtil.download(updateInfo.getApkurl(), file.getAbsolutePath(),pd);
             Message msg = Message.obtain();
-            if(downloadFile!=null){
+            if(file!=null){
                 //下载成功
                 pd.dismiss();
                 msg.what = State.DOWNLOAD_FILE_SUCCESS;

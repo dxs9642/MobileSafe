@@ -52,7 +52,7 @@ public class DownloadUtil {
 //
 //    }
 
-    public static File download(String serverPath,String savePath,ProgressDialog pd){
+    public static void download(String serverPath,String savePath,ProgressDialog pd){
         //为满足带有进度条的对话框而写的download方法，上面那个暂时弃用
         try {
             URL url = new URL(serverPath);
@@ -77,14 +77,10 @@ public class DownloadUtil {
                 fos.flush();
                 fos.close();
                 is.close();
-                return file;
-            }else{
-                return null;
             }
 
         }catch(Exception e){
             e.printStackTrace();
-            return null;
         }
 
 

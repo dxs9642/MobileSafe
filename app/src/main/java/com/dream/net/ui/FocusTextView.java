@@ -8,6 +8,10 @@ import android.widget.TextView;
  * Created by sunlongxiao on 10/14/14.
  */
 public class FocusTextView extends TextView{
+    /**
+     *
+     * @param 自定义滑动textView控件
+     */
 
     public FocusTextView(Context context) {
         super(context);
