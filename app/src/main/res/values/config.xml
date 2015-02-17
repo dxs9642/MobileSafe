@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="update_address">http://10.211.55.3/update.xml</string>
+    <string name="update_address">http://192.168.1.5/update.xml</string>
 
 </resources>

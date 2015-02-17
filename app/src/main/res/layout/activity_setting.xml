@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              tools:context=".MainActivity"
+        >
+
+
+
+
+
+
+    <TextView
+            android:id="@+id/tv_main_title"
+            android:background="#ff2a24ff"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="56dp"
+            android:textSize="20dip"
+            android:textColor="#ffffffff"
+            android:text="设置中心"
+            />
+
+
+
+
+
+
+</LinearLayout>
