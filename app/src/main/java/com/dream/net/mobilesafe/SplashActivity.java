@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -47,6 +48,7 @@ public class SplashActivity extends Activity {
     private UpdateInfo updateInfo;
     private String TAG = "S plashActivity---------->";
     private ProgressDialog pd;//下载的进度条
+    private SharedPreferences sp;
 
 
     private Handler handler = new Handler(){
@@ -106,11 +108,29 @@ public class SplashActivity extends Activity {
 
         tv_splash_version = (TextView)findViewById(R.id.tv_splash_version);
         tv_splash_version.setText(this.appVersion());
-        new Thread(new CheckVersionTask()).start();
 
         AlphaAnimation aa = new AlphaAnimation(0.1f,1.0f);//定义开始的透明度和结束的透明度
         aa.setDuration(3000);
         findViewById(R.id.rl_splash).startAnimation(aa);
+
+        sp = getSharedPreferences("config",MODE_PRIVATE);
+        if(sp.getBoolean("update",true)) {
+            new Thread(new CheckVersionTask()).start();
+        }else{
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(3000);
+                    }catch(InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    gotoMainActivity();
+                }
+            }).start();
+
+        }
+
     }
 
     private class DownloadNewVersionTask implements Runnable{

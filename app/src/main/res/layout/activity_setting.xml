@@ -12,11 +12,10 @@
 
 
     <TextView
-            android:id="@+id/tv_main_title"
             android:background="#ff2a24ff"
             android:gravity="center_horizontal|center_vertical"
             android:layout_width="fill_parent"
-            android:layout_height="56dp"
+            android:layout_height="56dip"
             android:textSize="20dip"
             android:textColor="#ffffffff"
             android:text="设置中心"
@@ -24,6 +23,12 @@
 
 
 
+    <com.dream.net.ui.SettingItemView
+            android:id="@+id/siv_setting_itemUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+    </com.dream.net.ui.SettingItemView>
 
 
 
