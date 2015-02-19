@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import android.widget.*;
 
 import com.dream.net.adapter.HomeGridViewAdapter;
 
@@ -16,11 +16,21 @@ import com.dream.net.adapter.HomeGridViewAdapter;
  * Created by sunlongxiao on 10/11/14.
  {33eecb5f-1a64-4b9f-a852-a4ef7327e0f5} */
 public class MainActivity extends Activity{
-    private GridView gv_home_item;
     private SharedPreferences sp;
 
+    private GridView gv_home_item;
+
+    private EditText et_dialog_setup_pwd;
+    private EditText et_dialog_resetup_pwd;
+    private Button bt_dialog_setup_OK_pwd;
+    private Button bt_dialog_setup_cancel_pwd;
 
 
+    private EditText et_dialog_login_pwd;
+    private Button bt_dialog_login_OK_pwd;
+    private Button bt_dialog_login_cancel_pwd;
+
+    private AlertDialog dialog;
 
 
     @Override
@@ -64,15 +74,93 @@ public class MainActivity extends Activity{
     }
 
     public void showCreatePwdDialog(){
+
+
+
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         View view = View.inflate(MainActivity.this, R.layout.linear_dialog_setup_pwd, null);
         builder.setView(view);
-        builder.show();
+        dialog = builder.show();
+
+        et_dialog_setup_pwd = (EditText)view.findViewById(R.id.et_dialog_setup_pwd);
+        et_dialog_resetup_pwd = (EditText)view.findViewById(R.id.et_dialog_resetup_pwd);
+
+        bt_dialog_setup_OK_pwd = (Button)view.findViewById(R.id.bt_dialog_setup_OK_pwd);
+        bt_dialog_setup_cancel_pwd = (Button)view.findViewById(R.id.bt_dialog_setup_cancel_pwd);
+
+        bt_dialog_setup_OK_pwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pwd = et_dialog_setup_pwd.getText().toString().trim();//trim去掉空格
+                String repwd = et_dialog_resetup_pwd.getText().toString().trim();
+                if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(repwd) && pwd.equals(repwd)) {
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("PhoneProtectPassword",pwd);
+                    editor.commit();
+                    dialog.dismiss();
+                }else{
+                    Toast.makeText(MainActivity.this,"密码为格式错误或者密码不匹配,请从新输入",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        });
+        bt_dialog_setup_cancel_pwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+
+
+
+
+
     }
 
 
     public void showInputPwdDialog(){
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        View view = View.inflate(MainActivity.this, R.layout.linear_dialog_login_pwd, null);
+        builder.setView(view);
+        dialog = builder.show();
+
+        et_dialog_login_pwd = (EditText)view.findViewById(R.id.et_dialog_login_pwd);
+        bt_dialog_login_OK_pwd = (Button)view.findViewById(R.id.bt_dialog_login_OK_pwd);
+        bt_dialog_login_cancel_pwd = (Button)view.findViewById(R.id.bt_dialog_login_cancel_pwd);
+
+        bt_dialog_login_OK_pwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pwd = sp.getString("PhoneProtectPassword","");
+                String inputPwd = et_dialog_login_pwd.getText().toString().trim();
+                if (!TextUtils.isEmpty(pwd)){
+                    if (pwd.equals(inputPwd)){
+                        dialog.dismiss();
+                        Log.i("MainActivity","密码输入正确");
+
+                    }else{
+                        Toast.makeText(MainActivity.this,"密码输入错误，请重新输入",Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(MainActivity.this,"程序工作出现异常，请于作者联系一下",Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                }
+
+
+            }
+        });
+
+        bt_dialog_login_cancel_pwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
 }

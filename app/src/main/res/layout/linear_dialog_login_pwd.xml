@@ -17,7 +17,7 @@
 
 
     <EditText
-            android:id="@+id/et_dialog_setup_pwd"
+            android:id="@+id/et_dialog_login_pwd"
             android:hint="请输入密码"
             android:inputType="textPassword"
             android:layout_width="285dip"
@@ -25,14 +25,7 @@
             android:layout_gravity="center"
             />
 
-    <EditText
-            android:id="@+id/et_dialog_resetup_pwd"
-            android:hint="请再次输入密码"
-            android:inputType="textPassword"
-            android:layout_width="285dip"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            />
+
 
     <LinearLayout
             android:orientation="horizontal"
@@ -41,14 +34,14 @@
             android:gravity="center_horizontal">
 
     <Button
-            android:id="@+id/bt_dialog_setup_OK_pwd"
+            android:id="@+id/bt_dialog_login_OK_pwd"
             android:text="确定"
             android:layout_width="120dip"
             android:layout_height="40dip"
             />
 
     <Button
-            android:id="@+id/bt_dialog_setup_cancel_pwd"
+            android:id="@+id/bt_dialog_login_cancel_pwd"
             android:text="取消"
             android:layout_width="120dip"
             android:layout_height="40dip"
