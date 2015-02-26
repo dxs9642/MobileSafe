@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-    <!--
+<!--
     说一下，下面的那个包名com.dream.net.mobilesafe是唯一的，如果出现相同的包名的新的应用将会覆盖原来的应用，然而，如果两个包的签名不一致，
     则新的应用不会替代旧的应用，简单来说就是无法进行安装，这种方式在自动更新上比较常见，如果签名不一致，无法产生自动更新
-     -->
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dream.net.mobilesafe">
+    package="com.dream.net.mobilesafe" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
 
     <application
         android:allowBackup="true"
@@ -20,22 +17,25 @@
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/SplashTheme"
-        >
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".MainActivity" >
+        <activity android:name=".MainActivity" >
         </activity>
-
-        <activity
-                android:name=".SettingActivity" >
+        <activity android:name=".SettingActivity" >
         </activity>
-
+        <activity
+            android:name=".LostAndFound"
+            android:label="@string/title_activity_lost_and_found" >
+        </activity>
+        <activity
+            android:name=".Setup1Activity"
+            android:label="@string/title_activity_setup1" >
+        </activity>
     </application>
 
 </manifest>

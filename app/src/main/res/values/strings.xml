@@ -4,5 +4,7 @@
     <string name="app_name">MobileSafe</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_lost_and_found">LostAndFound</string>
+    <string name="title_activity_setup1">Setup1Activity</string>
 
 </resources>

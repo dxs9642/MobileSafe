@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.*;
 
 import com.dream.net.adapter.HomeGridViewAdapter;
+import com.dream.net.utils.MD5Utils;
 
 /**
  * Created by sunlongxiao on 10/11/14.
@@ -97,9 +98,13 @@ public class MainActivity extends Activity{
                 String repwd = et_dialog_resetup_pwd.getText().toString().trim();
                 if (!TextUtils.isEmpty(pwd) && !TextUtils.isEmpty(repwd) && pwd.equals(repwd)) {
                     SharedPreferences.Editor editor = sp.edit();
-                    editor.putString("PhoneProtectPassword",pwd);
+                    editor.putString("PhoneProtectPassword", MD5Utils.encrypt(pwd));
                     editor.commit();
                     dialog.dismiss();
+
+                    Intent intent = new Intent(MainActivity.this,Setup1Activity.class);
+                    startActivity(intent);
+
                 }else{
                     Toast.makeText(MainActivity.this,"密码为格式错误或者密码不匹配,请从新输入",Toast.LENGTH_SHORT).show();
                     return;
@@ -125,6 +130,7 @@ public class MainActivity extends Activity{
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         View view = View.inflate(MainActivity.this, R.layout.linear_dialog_login_pwd, null);
+        //如果出现边框问题的话使用builder.setView(view,0,0,0,0)去掉边框
         builder.setView(view);
         dialog = builder.show();
 
@@ -138,12 +144,18 @@ public class MainActivity extends Activity{
                 String pwd = sp.getString("PhoneProtectPassword","");
                 String inputPwd = et_dialog_login_pwd.getText().toString().trim();
                 if (!TextUtils.isEmpty(pwd)){
-                    if (pwd.equals(inputPwd)){
+
+                    if (MD5Utils.encrypt(inputPwd).equals(pwd)){
                         dialog.dismiss();
                         Log.i("MainActivity","密码输入正确");
 
+                        Intent intent = new Intent(MainActivity.this,LostAndFound.class);
+                        startActivity(intent);
+
+
                     }else{
                         Toast.makeText(MainActivity.this,"密码输入错误，请重新输入",Toast.LENGTH_SHORT).show();
+                        et_dialog_login_pwd.setText("");
                     }
 
                 }else{
