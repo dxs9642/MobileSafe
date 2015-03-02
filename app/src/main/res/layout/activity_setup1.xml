@@ -1,89 +1,116 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:orientation="vertical"
               tools:context=".MainActivity"
         >
 
-    <TextView
-            android:id="@+id/tv_main_title"
-            android:background="#ff2a24ff"
-            android:gravity="center_horizontal|center_vertical"
+    <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="56dp"
-            android:textSize="20dip"
-            android:textColor="#ffffffff"
-            android:text="设置向导1"
-            />
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tv_main_title"
+                android:background="#ff2a24ff"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="56dp"
+                android:textSize="20dip"
+                android:textColor="#ffffffff"
+                android:text="设置向导1"
+                />
 
 
 
-    <TextView
-            android:text="功能简介："
-            style="@style/text_setup1_style"
-            android:textSize="20dip"
-            />
+        <TextView
+                android:text="功能简介："
+                style="@style/text_setup1_style"
+                android:textSize="20dip"
+                />
 
-    <TextView
-            android:text="sim卡变更报警"
-            style="@style/text_setup1_style"
-            android:drawableLeft="@android:drawable/star_big_on"
-            android:gravity="center_vertical"
-            />
+        <TextView
+                android:text="sim卡变更报警"
+                style="@style/text_setup1_style"
+                android:drawableLeft="@android:drawable/star_big_on"
+                android:gravity="center_vertical"
+                />
 
-    <TextView
-            android:text="gps追踪"
-            style="@style/text_setup1_style"
-            android:layout_marginTop="0dip"
-            android:drawableLeft="@android:drawable/star_big_on"
-            android:gravity="center_vertical"
-            />
+        <TextView
+                android:text="gps追踪"
+                style="@style/text_setup1_style"
+                android:layout_marginTop="0dip"
+                android:drawableLeft="@android:drawable/star_big_on"
+                android:gravity="center_vertical"
+                />
 
-    <TextView
-            android:text="远程数据销毁"
-            style="@style/text_setup1_style"
-            android:layout_marginTop="0dip"
-            android:drawableLeft="@android:drawable/star_big_on"
-            android:gravity="center_vertical"
-            />
+        <TextView
+                android:text="远程数据销毁"
+                style="@style/text_setup1_style"
+                android:layout_marginTop="0dip"
+                android:drawableLeft="@android:drawable/star_big_on"
+                android:gravity="center_vertical"
+                />
 
-    <TextView
-            android:text="远程锁屏"
-            style="@style/text_setup1_style"
-            android:layout_marginTop="0dip"
-            android:drawableLeft="@android:drawable/star_big_on"
-            android:gravity="center_vertical"
-            />
-
-
+        <TextView
+                android:text="远程锁屏"
+                style="@style/text_setup1_style"
+                android:layout_marginTop="0dip"
+                android:drawableLeft="@android:drawable/star_big_on"
+                android:gravity="center_vertical"
+                />
 
 
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="140dip"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dip"
+                android:src="@drawable/setup1_cartoon_char"/>
+
+    </LinearLayout>
 
 
-
-    <com.dream.net.ui.SetupSlider
+    <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            >
-
-    </com.dream.net.ui.SetupSlider>
-
-
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="40dip"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
 
 
-    <!--<LinearLayout-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:gravity="center_horizontal"-->
-            <!--android:layout_marginTop="20dip"-->
-            <!--android:orientation="horizontal">-->
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_online"
+                />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_invisible"
+                />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_invisible"
+                />
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_invisible"
+                />
+
+
+    </LinearLayout>
+
+
+    <Button
+            style="@style/button_setup_style"
+            android:layout_alignParentRight="true"
+            android:text="下一步"
+            />
 
 
 
-    <!--</LinearLayout>-->
-
-
-
-</LinearLayout>
+</RelativeLayout>

@@ -36,7 +36,6 @@ public class HomeGridViewAdapter extends BaseAdapter {
         return 0;
     }
 
-
     //返回位置对应的view对象
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
