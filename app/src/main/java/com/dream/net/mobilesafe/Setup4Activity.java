@@ -1,44 +1,24 @@
 package com.dream.net.mobilesafe;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.content.Loader;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 
-public class LostAndFound extends Activity {
-
-
-
-
-    private Button bt_lost_and_found_reGuide;
+public class Setup4Activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lost_and_found);
-
-        bt_lost_and_found_reGuide = (Button)findViewById(R.id.bt_lost_and_found_reGuide);
-        bt_lost_and_found_reGuide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(LostAndFound.this,Setup1Activity.class);
-                startActivity(intent);
-
-            }
-        });
+        setContentView(R.layout.activity_setup4);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_lost_and_found, menu);
+        getMenuInflater().inflate(R.menu.menu_setup4, menu);
         return true;
     }
 

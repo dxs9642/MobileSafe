@@ -2,43 +2,53 @@ package com.dream.net.mobilesafe;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.Loader;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-
-public class LostAndFound extends Activity {
-
+import java.sql.BatchUpdateException;
 
 
+public class Setup2Activity extends Activity {
 
-    private Button bt_lost_and_found_reGuide;
+
+
+    private Button bt_setup2_next;
+    private Button bt_setup2_previous;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lost_and_found);
+        setContentView(R.layout.activity_setup2);
 
-        bt_lost_and_found_reGuide = (Button)findViewById(R.id.bt_lost_and_found_reGuide);
-        bt_lost_and_found_reGuide.setOnClickListener(new View.OnClickListener() {
+        bt_setup2_next = (Button)findViewById(R.id.bt_setup2_next);
+        bt_setup2_previous = (Button)findViewById(R.id.bt_setup2_previous);
+
+        bt_setup2_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(LostAndFound.this,Setup1Activity.class);
+                Intent intent = new Intent(Setup2Activity.this,Setup3Activity.class);
                 startActivity(intent);
 
             }
         });
+        bt_setup2_previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_lost_and_found, menu);
+        getMenuInflater().inflate(R.menu.menu_setup2, menu);
         return true;
     }
 

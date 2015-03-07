@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              tools:context=".MainActivity"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                tools:context=".MainActivity"
         >
 
     <LinearLayout
@@ -18,47 +18,45 @@
                 android:layout_height="56dp"
                 android:textSize="20dip"
                 android:textColor="#ffffffff"
-                android:text="设置向导1"
+                android:text="设置向导3"
                 />
 
 
 
         <TextView
-                android:text="功能简介："
+                android:text="设置安全号码："
                 style="@style/text_setup1_style"
                 android:textSize="20dip"
                 />
 
         <TextView
-                android:text="sim卡变更报警"
                 style="@style/text_setup1_style"
-                android:drawableLeft="@android:drawable/star_big_on"
-                android:gravity="center_vertical"
+                android:text="sim更换后报警信息会发送到下面这个安全号码中"
+                />
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="20dip"
                 />
 
-        <TextView
-                android:text="gps追踪"
-                style="@style/text_setup1_style"
-                android:layout_marginTop="0dip"
-                android:drawableLeft="@android:drawable/star_big_on"
-                android:gravity="center_vertical"
+        <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/button_setup_style"
+                android:layout_marginTop="20dip"
+                android:text="从通讯录中选择联系人"
                 />
 
-        <TextView
-                android:text="远程数据销毁"
-                style="@style/text_setup1_style"
-                android:layout_marginTop="0dip"
-                android:drawableLeft="@android:drawable/star_big_on"
-                android:gravity="center_vertical"
-                />
 
-        <TextView
-                android:text="远程锁屏"
-                style="@style/text_setup1_style"
-                android:layout_marginTop="0dip"
-                android:drawableLeft="@android:drawable/star_big_on"
-                android:gravity="center_vertical"
-                />
+
+
+
+        <!--<com.dream.net.ui.Setup2ItemView-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content">-->
+        <!--</com.dream.net.ui.Setup2ItemView>-->
 
 
         <ImageView
@@ -66,7 +64,7 @@
                 android:layout_height="140dip"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dip"
-                android:src="@drawable/setup1_cartoon_char"/>
+                android:src="@drawable/setup3_cartoon_char"/>
 
     </LinearLayout>
 
@@ -80,20 +78,22 @@
             android:orientation="horizontal">
 
 
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_invisible"
+                />
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/presence_invisible"
+                />
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/presence_online"
-                />
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/presence_invisible"
-                />
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/presence_invisible"
                 />
         <ImageView
                 android:layout_width="wrap_content"
@@ -106,12 +106,18 @@
 
 
     <Button
-            android:id="@+id/bt_setup1_next"
+            android:id="@+id/bt_setup3_next"
             style="@style/button_setup_style"
             android:layout_alignParentRight="true"
             android:text="下一步"
             />
 
+    <Button
+            android:id="@+id/bt_setup3_previous"
+            style="@style/button_setup_style"
+            android:layout_alignParentLeft="true"
+            android:text="上一步"
+            />
 
 
 </RelativeLayout>
