@@ -1,19 +1,59 @@
 package com.dream.net.mobilesafe;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import com.dream.net.ui.anim.ShowByBehavior;
 
 
-public class Setup4Activity extends Activity {
+public class Setup4Activity extends SliderGestureActivity {
+
+    private Button bt_setup4_next;
+    private Button bt_setup4_previous;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup4);
+
+        setupGesture();
+
+        bt_setup4_next = (Button)findViewById(R.id.bt_setup4_next);
+        bt_setup4_previous = (Button)findViewById(R.id.bt_setup4_previous);
+
+
+        bt_setup4_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            showNext();
+            }
+        });
+
+
+        bt_setup4_previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPre();
+            }
+        });
+
+
     }
 
+    @Override
+    protected void showPre() {
+        ShowByBehavior.rightToLeftTranslate(Setup4Activity.this,Setup3Activity.class);
+    }
+
+    @Override
+    protected void showNext() {
+        ShowByBehavior.leftToRightTranslate(Setup4Activity.this, LostAndFound.class);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

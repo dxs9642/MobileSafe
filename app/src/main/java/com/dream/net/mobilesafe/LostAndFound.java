@@ -29,6 +29,7 @@ public class LostAndFound extends Activity {
 
                 Intent intent = new Intent(LostAndFound.this,Setup1Activity.class);
                 startActivity(intent);
+                LostAndFound.this.finish();
 
             }
         });

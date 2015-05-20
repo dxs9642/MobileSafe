@@ -7,11 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import com.dream.net.ui.anim.ShowByBehavior;
 
 import java.sql.BatchUpdateException;
 
 
-public class Setup2Activity extends Activity {
+public class Setup2Activity extends SliderGestureActivity {
 
 
 
@@ -23,27 +24,38 @@ public class Setup2Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup2);
 
+        setupGesture();
+
         bt_setup2_next = (Button)findViewById(R.id.bt_setup2_next);
         bt_setup2_previous = (Button)findViewById(R.id.bt_setup2_previous);
 
         bt_setup2_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(Setup2Activity.this,Setup3Activity.class);
-                startActivity(intent);
-
+                showNext();
             }
         });
+
         bt_setup2_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showPre();
             }
         });
 
     }
 
+    @Override
+    protected void showPre() {
+        ShowByBehavior.rightToLeftTranslate(Setup2Activity.this,Setup1Activity.class);
+
+    }
+
+    @Override
+    protected void showNext() {
+        ShowByBehavior.leftToRightTranslate(Setup2Activity.this, Setup3Activity.class);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

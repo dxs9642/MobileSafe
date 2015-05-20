@@ -7,9 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import com.dream.net.ui.anim.ShowByBehavior;
 
 
-public class Setup3Activity extends Activity {
+public class Setup3Activity extends SliderGestureActivity {
 
 
     private Button bt_setup3_next;
@@ -20,29 +21,40 @@ public class Setup3Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup3);
 
+        setupGesture();
+
         bt_setup3_next = (Button)findViewById(R.id.bt_setup3_next);
         bt_setup3_previous = (Button)findViewById(R.id.bt_setup3_previous);
 
         bt_setup3_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(Setup3Activity.this,Setup4Activity.class);
-                startActivity(intent);
-
+                showNext();
             }
         });
 
         bt_setup3_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showPre();
             }
         });
 
 
     }
 
+
+    @Override
+    protected void showPre() {
+        ShowByBehavior.rightToLeftTranslate(Setup3Activity.this,Setup2Activity.class);
+
+    }
+
+    @Override
+    protected void showNext() {
+        ShowByBehavior.leftToRightTranslate(Setup3Activity.this, Setup4Activity.class);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
