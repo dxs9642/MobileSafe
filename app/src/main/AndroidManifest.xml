@@ -8,6 +8,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -48,6 +51,19 @@
             android:name=".Setup4Activity"
             android:label="@string/title_activity_setup4" >
         </activity>
+        <activity
+            android:name=".ContactSelectActivity"
+            android:label="@string/title_activity_contact_select" >
+        </activity>
+
+
+        <receiver android:name="com.dream.net.receiver.PhoneStartedReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

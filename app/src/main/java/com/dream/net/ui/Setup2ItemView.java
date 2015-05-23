@@ -36,6 +36,9 @@ public class Setup2ItemView extends RelativeLayout {
     }
 
     private void initView(Context context){
+
+
+
         View.inflate(context, R.layout.relative_setting_item, this);
 
         tv_setting_up = (TextView)findViewById(R.id.tv_setting_up);
@@ -46,7 +49,9 @@ public class Setup2ItemView extends RelativeLayout {
 
         sp = context.getSharedPreferences("config",Context.MODE_PRIVATE);
 
-        boolean status = sp.getBoolean("simBinding", true);
+        boolean status = sp.getBoolean("simBinding", false);
+
+
 
         if(status){
             cb_setting_up.setChecked(true);

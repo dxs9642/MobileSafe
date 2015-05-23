@@ -34,6 +34,7 @@
                 android:text="sim更换后报警信息会发送到下面这个安全号码中"
                 />
         <EditText
+                android:id="@+id/et_setup3_cselect"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
@@ -42,6 +43,7 @@
                 />
 
         <Button
+                android:id="@+id/bt_setup3_cselect"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 style="@style/button_setup_style"

@@ -1,13 +1,20 @@
 package com.dream.net.mobilesafe;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import com.dream.net.receiver.SMSContentObserver;
 
 
 public class LostAndFound extends Activity {
@@ -16,6 +23,8 @@ public class LostAndFound extends Activity {
 
 
     private Button bt_lost_and_found_reGuide;
+    private TextView tv_laf_safe_num;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +32,14 @@ public class LostAndFound extends Activity {
         setContentView(R.layout.activity_lost_and_found);
 
         bt_lost_and_found_reGuide = (Button)findViewById(R.id.bt_lost_and_found_reGuide);
+        tv_laf_safe_num = (TextView)findViewById(R.id.tv_laf_safe_num);
+
+        sp = this.getSharedPreferences("config", Context.MODE_PRIVATE);
+        String num = sp.getString("safeNumber", "");
+        if (!TextUtils.isEmpty(num)){
+            tv_laf_safe_num.setText(num);
+        }
+
         bt_lost_and_found_reGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,6 +50,13 @@ public class LostAndFound extends Activity {
 
             }
         });
+
+
+
+        SMSContentObserver content = new SMSContentObserver(this,new Handler());
+        this.getContentResolver().registerContentObserver(
+                Uri.parse("content://sms/"), true, content);
+
     }
 
 

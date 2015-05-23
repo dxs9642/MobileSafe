@@ -36,6 +36,7 @@
 
 
         <com.dream.net.ui.Setup2ItemView
+                android:id="@+id/siv_setup2_simbind"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
         </com.dream.net.ui.Setup2ItemView>
